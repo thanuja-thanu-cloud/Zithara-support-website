@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zithara AI Customer Support</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+    header {
+      background-color: #004080;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    main {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .section {
+      margin-bottom: 2rem;
+    }
+    .chatbox {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      height: 200px;
+      padding: 1rem;
+      overflow-y: auto;
+      margin-bottom: 1rem;
+    }
+    .input-row {
+      display: flex;
+      gap: 1rem;
+    }
+    .input-row input {
+      flex: 1;
+      padding: 0.5rem;
+    }
+    .faq ul {
+      padding-left: 20px;
+    }
+    form input, form textarea {
+      width: 100%;
+      margin-bottom: 1rem;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    form button {
+      padding: 0.7rem 1.5rem;
+      background-color: #004080;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Zithara AI Customer Support</h1>
+    <p>Your 24/7 smart assistant</p>
+  </header>
+
+  <main>
+    <div class="section">
+      <h2>Chat with Zithara AI</h2>
+      <div class="chatbox" id="chatbox">
+        <p><em>Welcome! How can I assist you today?</em></p>
+      </div>
+      <div class="input-row">
+        <input type="text" id="userInput" placeholder="Type your message...">
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+
+    <div class="section faq">
+      <h2>Frequently Asked Questions</h2>
+      <ul>
+        <li>How do I track my order?</li>
+        <li>What is Zithara's return policy?</li>
+        <li>How can I speak to a human support agent?</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Contact Human Support</h2>
+      <form onsubmit="submitForm(event)">
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea placeholder="Your message..." rows="4" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </main>
+
+  <script>
+    function sendMessage() {
+      const input = document.getElementById("userInput");
+      const chatbox = document.getElementById("chatbox");
+      if (input.value.trim() === "") return;
+
+      const userMessage = document.createElement("p");
+      userMessage.innerHTML = `<strong>You:</strong> ${input.value}`;
+      chatbox.appendChild(userMessage);
+
+      const aiMessage = document.createElement("p");
+      aiMessage.innerHTML = `<strong>Zithara AI:</strong> Thanks for your message. We’ll get back to you shortly.`;
+      chatbox.appendChild(aiMessage);
+
+      chatbox.scrollTop = chatbox.scrollHeight;
+      input.value = "";
+    }
+
+    function submitForm(event) {
+      event.preventDefault();
+      alert("Message sent to human support. We'll get back to you soon!");
+    }
+  </script>
+</body>
+</html>
